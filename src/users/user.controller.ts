@@ -11,16 +11,17 @@ import {
   import { User } from './user.entity';
   import { ProfileDTO } from './profile.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { AuthGuard } from '@nestjs/passport';
   
   @ApiTags('user') // hanya untuk tampil rapih di Swagger UI
-  @ApiBearerAuth() // 🛡️ menandakan endpoint ini pakai token JWT  
+  @ApiBearerAuth() // 🛡️ menandakan endpoint ini pakai token JWT
+  @UseGuards(AuthGuard('jwt')) // 🔐 Wajib supaya NestJS cek token
+  
   @Controller('user')
   export class UserController {
     private readonly logger = new Logger(UserController.name);
     constructor(private userService: UserService) {}
   
-  @UseGuards(JwtAuthGuard) // 🔐 Wajib supaya NestJS cek token
     @Get()
     async getUser(@Req() request: Request): Promise<ProfileDTO> {
       const userJwtPayload: JwtPayloadDto = request['user'];
