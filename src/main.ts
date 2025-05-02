@@ -6,7 +6,17 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
-  app.enableCors();
+  
+  // Updated CORS configuration
+  app.enableCors({
+    origin: [
+      'https://simple-social-media-app-fe-omega.vercel.app',
+      'http://localhost:3000',
+      'http://localhost:5173'
+    ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
 
   const config = new DocumentBuilder()
     .setTitle('Shopping List WEB')
