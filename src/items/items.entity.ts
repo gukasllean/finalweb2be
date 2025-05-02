@@ -12,6 +12,9 @@ export class ShoppingItem {
   @Column()
   quantity: number;
 
+  @Column()
+  categoryId: number;
+
   @ManyToOne(() => Category, category => category.items, { onDelete: 'CASCADE' })
   category: Category;
 }

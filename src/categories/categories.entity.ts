@@ -8,6 +8,8 @@ export class Category {
 
   @Column({ unique: true })
   name: string;
+  @Column({ default: true })
+  isActive: boolean;
 
   @OneToMany(() => ShoppingItem, item => item.category, { cascade: true })
   items: ShoppingItem[];
