@@ -9,7 +9,7 @@ async function bootstrap() {
   app.enableCors();
 
   const config = new DocumentBuilder()
-    .setTitle('E-commerce Catalog Managerq')
+    .setTitle('Shopping List WEB')
     .addBearerAuth()
     .addSecurityRequirements('bearer')
     .build();
