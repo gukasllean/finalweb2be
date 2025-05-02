@@ -7,8 +7,6 @@ export class ProfileDTO {
   @ApiProperty()
   email: string;
 
-
-
   @ApiProperty()
   created_at: Date;
 

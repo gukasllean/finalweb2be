@@ -20,7 +20,7 @@ import {
     @Column()
     password_hash: string;
   
-    @Column()
+    @Column({nullable: true})
     profile_picture: string;
   
   

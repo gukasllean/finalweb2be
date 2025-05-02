@@ -34,17 +34,6 @@ export class CreateUserTable1682112345678 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: 'profile_picture',
-            type: 'varchar',
-            length: '255',
-            isNullable: true,
-          },
-          {
-            name: 'bio',
-            type: 'text',
-            isNullable: true,
-          },
-          {
             name: 'created_at',
             type: 'timestamp',
             default: 'CURRENT_TIMESTAMP',
