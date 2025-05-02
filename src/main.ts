@@ -9,14 +9,11 @@ async function bootstrap() {
   
   // Updated CORS configuration
   app.enableCors({
-    origin: [
-      'https://simple-social-media-app-fe-omega.vercel.app',
-      'http://localhost:3000',
-      'http://localhost:5173'
-    ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    origin: 'https://simple-social-media-app-fe-omega.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
   });
+  
 
   const config = new DocumentBuilder()
     .setTitle('Shopping List WEB')
